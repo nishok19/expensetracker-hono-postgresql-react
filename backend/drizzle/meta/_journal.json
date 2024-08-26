@@ -1,0 +1,48 @@
+{
+  "version": "6",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1716626530740,
+      "tag": "0000_glorious_kat_farrell",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1716655218760,
+      "tag": "0001_vengeful_bruce_banner",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1716711910265,
+      "tag": "0002_funny_speed",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1717268521382,
+      "tag": "0003_remarkable_tomorrow_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1717268574254,
+      "tag": "0004_volatile_electro",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1717268638361,
+      "tag": "0005_pale_warstar",
+      "breakpoints": true
+    }
+  ]
+}
