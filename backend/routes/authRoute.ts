@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { getUser, kindeClient, sessionManager } from "../kinde";
-
+const frontendURL = "https://expensetracker.nishok.my/";
 export const authRoute = new Hono()
   .get("/login", async (c) => {
     const loginUrl = await kindeClient.login(sessionManager(c));
@@ -14,7 +14,7 @@ export const authRoute = new Hono()
     // This will be called every time we login or register
     const url = new URL(c.req.url);
     await kindeClient.handleRedirectToApp(sessionManager(c), url);
-    return c.redirect("/");
+    return c.redirect(frontendURL + "/");
   })
   .get("/logout", async (c) => {
     const logoutUrl = await kindeClient.logout(sessionManager(c));
