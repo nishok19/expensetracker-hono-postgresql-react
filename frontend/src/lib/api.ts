@@ -5,7 +5,7 @@ export const URL =
 const getUserProfile = async () => {
   // TODO - Put all API calls in a seperate place
   try {
-    const res = await fetch(URL + "/api/me");
+    const res = await fetch(URL + "/api/me", { credentials: "include" });
     console.log("ress", res);
     if (!res.ok) throw new Error("Error while getting the /me");
     const data = await res.json();
@@ -25,7 +25,7 @@ export const userQueryOptions = queryOptions({
 
 export const getAllExpenses = async () => {
   // TODO - Put all API calls in a seperate place
-  const res = await fetch(URL + "/api/expenses");
+  const res = await fetch(URL + "/api/expenses", { credentials: "include" });
   if (!res.ok) throw new Error("Error while getting the /total-spent");
   const data = await res.json();
   console.log("expensess...", data);
