@@ -59,6 +59,7 @@ function CreateExpense() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(value),
+        credentials: "include",
       });
       if (!res.ok) throw new Error("Error while posting the /");
       const newExpense = await res.json();
