@@ -13,13 +13,7 @@ app.use("/api/*", cors());
 app.use(
   "*",
   cors({
-    origin: (origin) => {
-      const allowedOrigins = [
-        "https://expensetracker.nishok.my",
-        "http://localhost:5173",
-      ];
-      return allowedOrigins.includes(origin) ? origin : "";
-    }, // allow this frontend domain
+    origin: ["https://expensetracker.nishok.my/", "http://localhost:5173/"], // allow this frontend domain
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true, // if you're using cookies/auth headers
@@ -28,7 +22,7 @@ app.use(
 
 app.basePath("/api").route("/expenses", expensesRoutes).route("/", authRoute);
 
-app.get("*", serveStatic({ root: "./frontend/dist" }));
-app.get("*", serveStatic({ path: "./frontend/dist/index.html" }));
+// app.get("*", serveStatic({ root: "./frontend/dist" }));
+// app.get("*", serveStatic({ path: "./frontend/dist/index.html" }));
 
 export default app;

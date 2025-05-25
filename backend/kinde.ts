@@ -6,7 +6,7 @@ import {
 } from "@kinde-oss/kinde-typescript-sdk";
 import { type Context } from "hono";
 import { getCookie, setCookie, deleteCookie } from "hono/cookie";
-import { createFactory, createMiddleware } from "hono/factory";
+import { createMiddleware } from "hono/factory";
 
 // Client for authorization code flow
 export const kindeClient = createKindeServerClient(
@@ -57,6 +57,7 @@ export const getUser = createMiddleware<Env>(async (c, next) => {
   try {
     const manager = sessionManager(c);
     const isAuthenticated = await kindeClient.isAuthenticated(manager);
+    console.log("isAuthenitcated,. ", isAuthenticated);
     if (!isAuthenticated) return c.json({ isAuthenticated: false }, 401);
 
     const user = await kindeClient.getUserProfile(manager);
