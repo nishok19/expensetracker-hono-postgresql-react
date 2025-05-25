@@ -18,6 +18,7 @@ import { format } from "date-fns";
 import { useQueryClient } from "@tanstack/react-query";
 import { getAllExpensesQueryOption } from "@/lib/api";
 import SelectDropDown from "@/components/user_components/Select";
+import { URL } from "@/lib/api";
 // import {
 //   Select,
 //   SelectContent,
@@ -51,7 +52,7 @@ function CreateExpense() {
       );
 
       // TODO - Put all API calls in a seperate place
-      const res = await fetch("/api/expenses", {
+      const res = await fetch(URL + "/api/expenses", {
         method: "POST",
         headers: {
           Accept: "application/json",

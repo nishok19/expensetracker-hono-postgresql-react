@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 import BarChart from "@/components/user_components/Bar_Chart";
+import { URL } from "@/lib/api";
 
 export const Route = createFileRoute("/_authenticated/")({
   component: Index,
@@ -15,7 +16,7 @@ export const Route = createFileRoute("/_authenticated/")({
 
 const getTotalExpenses = async () => {
   // TODO - Put all API calls in a seperate place
-  const res = await fetch("/api/expenses/total-spent");
+  const res = await fetch(URL + "/api/expenses/total-spent");
   if (!res.ok) throw new Error("Error while getting the /total-spent");
   const data = await res.json();
   return data;

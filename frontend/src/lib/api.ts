@@ -1,9 +1,11 @@
 import { queryOptions } from "@tanstack/react-query";
 
+export const URL =
+  "https://expensetracker-hono-postgresql-react-production.up.railway.app/";
 const getUserProfile = async () => {
   // TODO - Put all API calls in a seperate place
   try {
-    const res = await fetch("/api/me");
+    const res = await fetch(URL + "/api/me");
     if (!res.ok) throw new Error("Error while getting the /me");
     const data = await res.json();
     return data;
@@ -20,7 +22,7 @@ export const userQueryOptions = queryOptions({
 
 export const getAllExpenses = async () => {
   // TODO - Put all API calls in a seperate place
-  const res = await fetch("/api/expenses");
+  const res = await fetch(URL + "/api/expenses");
   if (!res.ok) throw new Error("Error while getting the /total-spent");
   const data = await res.json();
   console.log("expensess...", data);

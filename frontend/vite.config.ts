@@ -14,13 +14,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  server: {
-    proxy: {
-      "/api": {
-        target:
-          "https://expensetracker-hono-postgresql-react-production.up.railway.app/",
-        changeOrigin: true,
-      },
-    },
-  },
+  // server: {
+  //   proxy: {
+  //     "/api": {
+  //       target:
+  //         "https://expensetracker-hono-postgresql-react-production.up.railway.app/",
+  //       changeOrigin: true,
+  //     },
+  //   },
+  // },
 });
