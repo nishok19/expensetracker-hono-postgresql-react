@@ -15,8 +15,8 @@ app.use(
   cors({
     origin: (origin) => {
       const allowedOrigins = [
-        "https://expensetracker.nishok.my/",
-        "http://localhost:5173/",
+        "https://expensetracker.nishok.my",
+        "http://localhost:5173",
       ];
       return allowedOrigins.includes(origin) ? origin : "";
     }, // allow this frontend domain
