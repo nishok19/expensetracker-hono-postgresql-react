@@ -17,6 +17,16 @@ import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { useQueryClient } from "@tanstack/react-query";
 import { getAllExpensesQueryOption } from "@/lib/api";
+import SelectDropDown from "@/components/user_components/Select";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectGroup,
+//   SelectItem,
+//   SelectLabel,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
 
 export const Route = createFileRoute("/_authenticated/create-expense")({
   component: CreateExpense,
@@ -32,6 +42,7 @@ function CreateExpense() {
     defaultValues: {
       title: "",
       amount: "0",
+      type: "",
       date: new Date().toLocaleString(),
     },
     onSubmit: async ({ value }) => {
@@ -87,6 +98,21 @@ function CreateExpense() {
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
               />
+            </>
+          )}
+        />
+        <form.Field
+          name="type"
+          // validators={{
+          //   onChange: z
+          //     .string()
+          //     .min(2, { message: "Type must be atleast 2 characters long" })
+          //     .max(50, { message: "Type cannot exceed 50 characters" }),
+          // }}
+          children={(field) => (
+            <>
+              <Label htmlFor={field.name}>Type</Label>
+              <SelectDropDown field={field} />
             </>
           )}
         />

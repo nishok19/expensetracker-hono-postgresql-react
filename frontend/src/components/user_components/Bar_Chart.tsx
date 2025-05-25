@@ -104,28 +104,41 @@ import ReactApexChart from "react-apexcharts";
 export default function BarChart() {
   const { isPending, error, data } = useQuery(getAllExpensesQueryOption);
 
-  const amountDataArr = data?.expenses?.map((a: any) => {
-    return [a.date, a.amount];
-  });
+  // const amountDataArr = data?.expenses?.map((a: any) => {
+  //   return [a.date, a.amount];
+  // });
 
-  // const xAxis = data?.expenses?.map((date: any) => date.date);
+  const xAxis = [
+    "Jan-2024",
+    "Feb-2024",
+    "Mar-2024",
+    "Apr-2024",
+    "May-2024",
+    "Jun-2024",
+    "Jul-2024",
+    "Aug-2024",
+    "Sep-2024",
+    "Oct-2024",
+    "Nov-2024",
+    "Dec-2024",
+  ];
 
-  console.log("Data ", data, amountDataArr);
+  console.log("Data ", data, "amount data", xAxis);
   const options: ApexOptions = {
     chart: {
-      height: 40,
+      height: 140,
       stacked: true,
       zoom: {
         enabled: true,
       },
-      foreColor: "orange",
+      foreColor: "white",
     },
     tooltip: {
       theme: "dark",
     },
     xaxis: {
       type: "datetime",
-      // categories: xAxis,
+      categories: xAxis,
     },
     plotOptions: {
       bar: {
@@ -146,36 +159,49 @@ export default function BarChart() {
     ],
   };
 
+  // const series = [
+  //   {
+  //     name: "Expenses",
+  //     data: amountDataArr,
+  //   },
+  // ];
+  // const series = data?.expenses?.map((el: any) => ({
+  //   name: el.type,
+  //   data: [el.amount],
+  // }));
+
+  const expenseTypes = [
+    "entertainment",
+    "food",
+    "vehicle/fuel",
+    "snacks",
+    "sports/play/turf",
+    "misc",
+  ];
+
   const series = [
     {
-      name: "Expenses",
-      data: amountDataArr,
+      name: "entertainment",
+      data: [100, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0],
+    },
+    {
+      name: "food",
+      data: [200, 0, 0, 210, 0, 0, 0, 0, 0, 0, 0, 0],
     },
   ];
 
-  // const series = [
-  //   {
-  //     name: "PRODUCT A",
-  //     data: [44, 55, 41, 67, 22, 43],
-  //   },
-  //   {
-  //     name: "PRODUCT B",
-  //     data: [13, 23, 20, 8, 13, 27],
-  //   },
-  //   {
-  //     name: "PRODUCT C",
-  //     data: [11, 17, 15, 15, 21, 14],
-  //   },
-  //   {
-  //     name: "PRODUCT D",
-  //     data: [21, 7, 25, 13, 22, 8],
-  //   },
-  // ];
+  const srs = expenseTypes.map((ty) => {
+    return data?.expenses?.filter((exp: any) => exp?.type?.toLowerCase() == ty);
+  });
+
+  console.log("sereess ", srs);
 
   if (isPending) return <div>Loading...</div>;
   if (error) return <>Error {error.message}</>;
 
-  return <ReactApexChart options={options} series={series} type="bar" />;
+  return (
+    <ReactApexChart options={options} series={series} type="bar" height={400} />
+  );
   //   return (
   //     <Card>
   //       <CardHeader

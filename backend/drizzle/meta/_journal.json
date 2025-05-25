@@ -43,6 +43,13 @@
       "when": 1717268638361,
       "tag": "0005_pale_warstar",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1724677673700,
+      "tag": "0006_empty_tarantula",
+      "breakpoints": true
     }
   ]
 }

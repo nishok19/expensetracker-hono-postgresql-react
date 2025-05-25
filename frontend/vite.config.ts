@@ -17,7 +17,8 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:3000",
+        target:
+          "https://expensetracker-hono-postgresql-react-production.up.railway.app/",
         changeOrigin: true,
       },
     },

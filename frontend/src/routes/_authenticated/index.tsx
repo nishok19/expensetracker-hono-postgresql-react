@@ -31,7 +31,7 @@ function Index() {
 
   return (
     <section>
-      <Card className="m-auto w-2/4">
+      <Card className="m-auto w-full ">
         <CardHeader>
           <CardTitle>Total Spent</CardTitle>
           <CardDescription>The total amount you have spent</CardDescription>

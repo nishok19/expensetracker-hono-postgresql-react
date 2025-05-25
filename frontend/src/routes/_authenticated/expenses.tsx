@@ -30,6 +30,7 @@ function Expenses() {
           <TableRow>
             <TableHead className="w-[100px]">ID</TableHead>
             <TableHead>Title</TableHead>
+            <TableHead>Type</TableHead>
             <TableHead className="">Amount</TableHead>
             <TableHead className="">Date Spent</TableHead>
           </TableRow>
@@ -42,6 +43,7 @@ function Expenses() {
             <TableRow key={exp?.id}>
               <TableCell className="font-medium">{exp?.id}</TableCell>
               <TableCell>{exp?.title}</TableCell>
+              <TableCell>{exp?.type?.toUpperCase()}</TableCell>
               <TableCell className="">{exp?.amount}</TableCell>
               <TableCell className="">
                 {new Date(exp?.date).toLocaleDateString()}
