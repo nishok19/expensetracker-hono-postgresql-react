@@ -1,3 +1,5 @@
+import { URL } from "@/lib/api";
+
 export default function Login() {
   return (
     <div className="h-full bg-gray-400 dark:bg-gray-900">
@@ -30,7 +32,7 @@ export default function Login() {
                 >
                   <div className="w-full h-44 flex flex-col items-center justify-around">
                     <a
-                      href="/api/login"
+                      href={URL + "/api/login"}
                       className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
                     >
                       <img

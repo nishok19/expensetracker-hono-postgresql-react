@@ -6,11 +6,14 @@ const getUserProfile = async () => {
   // TODO - Put all API calls in a seperate place
   try {
     const res = await fetch(URL + "/api/me");
+    console.log("ress", res);
     if (!res.ok) throw new Error("Error while getting the /me");
     const data = await res.json();
+    if (!data) throw new Error("No data returned from /me");
     return data;
   } catch (e) {
     console.log("Error while getting the /me ", e);
+    throw e;
   }
 };
 
