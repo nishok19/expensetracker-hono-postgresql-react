@@ -1,7 +1,7 @@
 import { queryOptions } from "@tanstack/react-query";
 
 export const URL =
-  "https://expensetracker-hono-postgresql-react-production.up.railway.app/";
+  "https://expensetracker-hono-postgresql-react-production.up.railway.app";
 const getUserProfile = async () => {
   // TODO - Put all API calls in a seperate place
   try {

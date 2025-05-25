@@ -11,17 +11,18 @@ app.use("*", logger());
 app.use("/api/*", cors());
 
 app.use(
-  "/api/*",
+  "*",
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://expensetracker-hono-postgresql-react-production.up.railway.app/",
-    ],
-    allowHeaders: ["X-Custom-Header", "Upgrade-Insecure-Requests"],
-    allowMethods: ["POST", "GET", "OPTIONS"],
-    exposeHeaders: ["Content-Length", "X-Kuma-Revision"],
-    maxAge: 600,
-    credentials: true,
+    origin: (origin) => {
+      const allowedOrigins = [
+        "https://expensetracker.nishok.my",
+        "http://localhost:5173",
+      ];
+      return allowedOrigins.includes(origin) ? origin : "";
+    }, // allow this frontend domain
+    allowHeaders: ["Content-Type", "Authorization"],
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true, // if you're using cookies/auth headers
   })
 );
 
