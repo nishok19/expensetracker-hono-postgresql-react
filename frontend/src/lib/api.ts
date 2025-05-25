@@ -12,8 +12,8 @@ const getUserProfile = async () => {
     if (!data) throw new Error("No data returned from /me");
     return data;
   } catch (e) {
-    console.log("Error while getting the /me ", e);
-    throw e;
+    console.log(e);
+    return e;
   }
 };
 
