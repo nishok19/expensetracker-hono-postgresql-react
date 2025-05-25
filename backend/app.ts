@@ -8,7 +8,6 @@ import { authRoute } from "./routes/authRoute";
 const app = new Hono();
 
 app.use("*", logger());
-app.use("/api/*", cors());
 
 app.use(
   "*",
@@ -20,9 +19,9 @@ app.use(
       ];
       return allowedOrigins.includes(origin) ? origin : "";
     }, // allow this frontend domain
+    credentials: true, // if you're using cookies/auth headers
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true, // if you're using cookies/auth headers
   })
 );
 
